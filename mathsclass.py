@@ -118,3 +118,26 @@ def LUMatrix():
     p,l,u = lu(M)
     print("L is \n",l)
     print("u is \n",u)
+    def powermethod():
+    import numpy as np
+    a = int(input("Dimension of Square Matrix:"))
+    iternum = int(input("Number of iterations:"))
+    vect = np.zeros((a,1))
+    M = np.zeros((a,a))
+    for i in range(a):
+        for j in range(a):
+            inpstr = "x"+str(i+1)+str(j+1)+":"
+            M[i,j] = float(input(inpstr))
+    print("The Matrix is\n",M)
+    for i in range(a):
+            inpstr = "x"+str(i+1)+"1"+":"
+            vect[i,0] = float(input(inpstr))
+
+    for i in range(iternum):
+        prodvect = np.matmul(M,vect)
+        eigval = prodvect.max()
+        vect = prodvect/eigval
+        print("iter",i+1,"is",eigval)
+        print("iter",i+1,"vector is\n",vect)
+        #if round(eigval,2) in eigvals(M):
+         # break  
