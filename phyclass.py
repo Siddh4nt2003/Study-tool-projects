@@ -73,3 +73,94 @@ def heisenberg():
         delv = h/(4*pi*delx*m)
         print("delv is")
         scinotat(delv)
+def resistivity():
+    from sympy import Symbol,solve
+    #rho = m/ne*e*t
+    rho = Symbol('rho')
+    tmp = input(rho)
+    if tmp!='na':
+        rho = float(tmp)
+    n = Symbol('n')
+    tmp = input(n)
+    if tmp!='na':
+        n= float(tmp)
+    t = Symbol('T')
+    tmp = input(t)
+    if tmp!='na':
+        t = float(tmp)
+    m = 9.1e-31
+    e = 1.6e-19
+    eq = rho-(m/(n*e*e*t))
+    l1 = [rho,n,t]
+    for i in l1:
+        if type(i) is not float:
+            print(solve(eq,i))
+            break
+def moles():
+    from sympy import Symbol,solve
+    #n = dNa/Mat
+    Na = 6.022e23
+    M = Symbol('M')
+    tmp = input(M)
+    if tmp!='na':
+        M = float(tmp)
+    n = Symbol('n')
+    tmp = input(n)
+    if tmp!='na':
+        n= float(tmp)
+    d = Symbol('d')
+    tmp = input(d)
+    if tmp!='na':
+        d = float(tmp)
+    eq = n-d*Na/M
+    l1 = [M,n,d]
+    for i in l1:
+        if type(i) is not float:
+            print(solve(eq,i))
+            break
+def driftvelo():
+    from sympy import Symbol,solve
+    #v = eEt/m
+    E = Symbol('E')
+    tmp = input(E)
+    if tmp!='na':
+        E = float(tmp)
+    v = Symbol('v')
+    tmp = input(v)
+    if tmp!='na':
+        v = float(tmp)
+    t = Symbol('T')
+    tmp = input(t)
+    if tmp!='na':
+        t = float(tmp)
+    m = 9.1e-31
+    e = 1.6e-19
+    eq = v - e*E*t/m
+    l1 = [E,v,t]
+    for i in l1:
+        if type(i) is not float:
+            print(solve(eq,i))
+            break
+def conductivity():
+    from sympy import Symbol,solve
+    #rho = m/ne*e*t
+    sigma = Symbol('sigma')
+    tmp = input(sigma)
+    if tmp!='na':
+        sigma = float(tmp)
+    n = Symbol('n')
+    tmp = input(n)
+    if tmp!='na':
+        n= float(tmp)
+    t = Symbol('T')
+    tmp = input(t)
+    if tmp!='na':
+        t = float(tmp)
+    m = 9.1e-31
+    e = 1.6e-19
+    eq = sigma-((n*e*e*t)/m)
+    l1 = [sigma,n,t]
+    for i in l1:
+        if type(i) is not float:
+            print(solve(eq,i))
+            break
