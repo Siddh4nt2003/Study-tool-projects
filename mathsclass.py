@@ -141,3 +141,30 @@ def LUMatrix():
         print("iter",i+1,"vector is\n",vect)
         #if round(eigval,2) in eigvals(M):
          # break  
+def isSimilar():
+    import numpy as np
+    similar = True
+    a = int(input("Number of rows in Matrix:"))
+    b = int(input("Number of columns in Matrix:"))
+    M = np.zeros((a,b))
+    for i in range(a):
+        for j in range(b):
+            inpstr = "x"+str(i+1)+str(j+1)+":"
+            M[i,j] = float(input(inpstr))
+    N = np.zeros((a,b))
+    for i in range(a):
+        for j in range(b):
+            inpstr = "x"+str(i+1)+str(j+1)+":"
+            N[i,j] = float(input(inpstr))
+    if np.linalg.det(M) != np.linalg.det(N):
+        similar=False
+    valsM = np.linalg.eigvals(M)
+    valsN = np.linalg.eigvals(N)
+    for i in valsM:
+        if i not in valsN:
+            similar=False
+            break
+    if similar:
+        print("They are similar")
+    else:
+        print("Not similar")
