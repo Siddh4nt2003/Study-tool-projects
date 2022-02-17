@@ -164,3 +164,82 @@ def conductivity():
         if type(i) is not float:
             print(solve(eq,i))
             break
+def semiconc():
+    from sympy import Symbol,solve
+    from math import pi
+    #n= 2pimkt/h2)3/2
+    m = Symbol('m')
+    tmp = input(m)
+    if tmp!='na':
+        m = float(tmp)
+    n = Symbol('n')
+    tmp = input(n)
+    if tmp!='na':
+        n= float(tmp)
+    t = Symbol('T')
+    tmp = input(t)
+    if tmp!='na':
+        t = float(tmp)
+    k = 1.38e-23
+    h = 6.63e-34
+    eq = n - 2*((2*pi*k*t/(h*h))**1.5)
+    l1 = [m,n,t]
+    for i in l1:
+        if type(i) is not float:
+            print(solve(eq,i))
+            break
+def Gitrans():
+    from sympy import Symbol,solve
+    #Gi = hfe*Rc/(1+hoeRp)*(Rc + Rl)
+    hfe = Symbol('hfe')
+    tmp = input('hfe')
+    if tmp!='na':
+        hfe = float(tmp)
+    Rc = Symbol('Rc')
+    tmp = input('Rc')
+    if tmp!='na':
+        Rc= float(tmp)
+    Rp = Symbol('Rp')
+    tmp = input('Rp')
+    if tmp!='na':
+        Rp= float(tmp)
+    Rl = Symbol('Rl')
+    tmp = input('Rl:')
+    if tmp!='na':
+        Rl= float(tmp)
+    hoe = Symbol('hoe')
+    tmp = input("hoe")
+    if tmp!='na':
+        hoe = float(tmp)
+    Gi = Symbol("Gi")
+    tmp = input("Gi")
+    if tmp!='na':
+        Gi = float(tmp)
+    eq = Gi-hfe*Rc/(1+hoe*Rp)*(Rc + Rl)
+    l1 = [Gi,hfe,hoe,Rc,Rp,Rl]
+    for i in l1:
+        if type(i) is not float:
+            print(solve(eq,i))
+            break
+def Deltatostar():
+    #Ra,Rb,Rc
+    Ra = float(input("Ra:"))
+    Rb = float(input("Rb:"))
+    Rc = float(input("Rc:"))
+    R1 = Ra*Rb/(Ra + Rb + Rc)
+    R2 = Ra*Rb/(Ra + Rb + Rc)
+    R3 = Ra*Rb/(Ra + Rb + Rc)
+    print("R1 is ",R1)
+    print("R2 is ",R2)
+    print("R3 is ",R3)
+def Startodelta():
+    R1 = float(input("R1:"))
+    R2 = float(input("R2:"))
+    R3 = float(input("R3:"))
+    Ra = (R1*R2 + R2*R3 + R3*R1)/R2
+    Rb = (R1*R2 + R2*R3 + R3*R1)/R3
+    Rc = (R1*R2 + R2*R3 + R3*R1)/R1
+    print("Ra is ",Ra)
+    print("Rb is ",Rb)
+    print("Rc is ",Rc)
+ 
