@@ -24,13 +24,10 @@ int isPrime(int x)
         int lim = sqrt(x);
         for (int i = 2; i <= lim; i++)
         {
-            if (isPrime(i))
+            if (x%i==0)
             {
-                if (x%i==0)
-                {
-                    return 0;
-                }   
-            }
+                return 0;
+            }   
         }
         return 1;   
     }   
